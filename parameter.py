@@ -10,6 +10,8 @@ def person(name, age, *, city, job):  # 关键字参数
 person('Jack', 24, city='beijing', job='Engineer')
 
 
+# *args是可变参数，args接收的是一个tuple
+# **kw是关键字参数，kw接收的是一个dict
 def f1(a, b, c=0, *args, **kw):
     print('a = ', a, 'b = ', b, 'c = ', c, 'args = ', args, 'kw = ', kw)
 
