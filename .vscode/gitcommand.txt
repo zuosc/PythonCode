@@ -1,1 +1,13 @@
-git账户测试
+GIT 配置全局
+git config --global  user.name  
+git config --global  user.email  
+
+GIT 取消全局
+git config --global --unset user.name  
+git config --global --unset user.email  
+
+
+
+GIT 配置当前项目配置
+git config user.name "your_name"  
+git config user.email "your_email"  
