@@ -38,8 +38,6 @@ r = reduce(fn, [1, 2, 3, 9])
 print(r)
 print('---------------------------')
 
-from functools import reduce
-
 
 def fn(x, y):
     return x * 10 + y
@@ -64,8 +62,6 @@ print(r)
 
 #################################################################
 
-from functools import reduce
-
 
 def str2int(s):
     def fn(x, y):
@@ -89,3 +85,10 @@ def str2int(s):
     return reduce(fn, map(char2num, s))
 
 print(str2int('123123123123'))
+
+
+def prod(L):
+    return reduce(lambda x, y: x * y, L)
+
+
+print('3 * 5 * 7 * 9 =', prod([3, 5, 7, 9]))
