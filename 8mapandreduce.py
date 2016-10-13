@@ -92,3 +92,69 @@ def prod(L):
 
 
 print('3 * 5 * 7 * 9 =', prod([3, 5, 7, 9]))
+
+# 练习 (3)
+# 利用map和reduce编写一个str2float函数，把字符串'123.456'转换成浮点数123.456
+
+
+# 函数定义
+def str2float(s):
+    # 通过 ‘.’ 分割数字字符串，赋值对应的 ‘.’ 左右字符串变量
+    l_s_int, r_s_float = s.split('.')
+    # 字符串 ‘.’ 右侧长度
+    r_s_len = len(r_s_float)
+
+    # 字符转数字函数
+    def char2int(s):
+        return {'0': 0,
+                '1': 1,
+                '2': 2,
+                '3': 3,
+                '4': 4,
+                '5': 5,
+                '6': 6,
+                '7': 7,
+                '8': 8,
+                '9': 9}[s]
+
+# 左侧-整数字符串转换
+
+    l_transfer = reduce(lambda x, y: x * 10 + y, map(char2int, l_s_int))
+    # 右侧-整数字符串转换
+    r_transfer = reduce(lambda x, y: x * 10 + y, map(char2int, r_s_float))
+
+    # 注意：
+    # (1)、r_transfer / 10 ** r_s_len:    expression python2 return 0
+    # (1)、r_transfer / 10 ** r_s_len:    expression python3 return 0.456
+    return l_transfer + r_transfer / 10**r_s_len
+
+print(str2float('123.456'))
+print(type(str2float('123.456')))
+
+
+def str2float(s):
+    l_int, r_int = s.split('.')
+
+    r_len = len(r_int)
+
+    # 字符转数字函数
+    def char2int(s):
+        return {'0': 0,
+                '1': 1,
+                '2': 2,
+                '3': 3,
+                '4': 4,
+                '5': 5,
+                '6': 6,
+                '7': 7,
+                '8': 8,
+                '9': 9}[s]
+
+    l_tr = reduce(lambda x, y: x * 10 + y, map(char2int, l_int))
+
+    r_tr = reduce(lambda x, y: x * 10 + y, map(char2int, r_int))
+
+    return l_tr + r_tr / 10**r_len
+
+
+print(str2float('1454654.1524814'))
