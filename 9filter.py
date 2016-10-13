@@ -36,8 +36,21 @@ def primes():
         yield n
         it = filter(_not_divisible(n), it)
 
+
 for n in primes():
     if n < 1000:
         print(n)
     else:
         break
+
+
+print('----------------------------------------')
+
+# 回数的获取
+
+
+def is_palindrome(n):
+    return int(str(n)[::-1]) == n
+
+
+print(list(filter(is_palindrome, range(1, 1000))))
