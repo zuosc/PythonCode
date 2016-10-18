@@ -7,5 +7,9 @@ __author__ = 'zuosc'
 
 from PIL import Image
 
-im = image.open('other.png')
+im = Image.open('other.png')
 print(im.format, im.size, im.mode)
+
+
+im.thumbnail((50, 50))
+im.save('thumb.jpg', 'png')
