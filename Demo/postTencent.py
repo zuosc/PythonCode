@@ -26,3 +26,5 @@ response = f.read().decode('utf-8')
 
 print(response)
 
+time.sleep(2)
+
