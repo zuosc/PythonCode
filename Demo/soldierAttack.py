@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+# !/usr/bin/env python3
 # Power by hw 2017-01-10
 
 import random
