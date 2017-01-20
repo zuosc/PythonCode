@@ -16,7 +16,7 @@ data = json.loads(jsonData)
 title = '今日天气'
 content ='今日天气:' + data["weather"]["now"]["text"] \
          + '  \r\n当前温度：' + data["weather"]["now"]["temperature"]+'℃'
-if data["weather"]["alarms"] != '':
+if data["weather"]["alarms"]:
     content = content + '  \r\n天气报警：' + data["weather"]["alarms"][0]["type"] + data["weather"]["alarms"][0]["level"] + '预警'
 
 sendurl='http://sc.ftqq.com/SCU5209T50ff781c69372d9b370387f5c079be01587ae52428055.send?'
