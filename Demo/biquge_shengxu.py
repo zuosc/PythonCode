@@ -22,9 +22,9 @@ def sengMsg(chapter):
     urllib.request.urlopen(sendurl + params)
 
 try:
+    lastChapter = getLatChapter()
     f = open('shengxu.txt','r')
     content = f.read()
-    lastChapter = getLatChapter()
 
     if content == lastChapter:
         pass
