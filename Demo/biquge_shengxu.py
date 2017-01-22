@@ -7,17 +7,16 @@ import urllib.request
 
 
 def getLatChapter():
-    shengxuAddr = 'http://www.biquge.cc/html/156/156129/'
-    html = urllib.request.urlopen(shengxuAddr).read().decode('utf8')
+    shengxuAddr = 'http://www.yinyuanren.com'
+    html = urllib.request.urlopen(shengxuAddr).read()
     soup = BeautifulSoup(html, 'html.parser')
-    lastChapter = soup.find_all('a')[-1]['href']
+    lastChapter = soup.find_all('a')[-5]['href']
     return lastChapter
 
 
 def sengMsg(chapter):
-    mAddr = 'http://m.biquge.cc/html/156/156129/'+chapter
     sendurl = 'http://sc.ftqq.com/SCU5209T50ff781c69372d9b370387f5c079be01587ae52428055.send?'
-    params = {'text': "圣墟新章节", 'desp': mAddr}
+    params = {'text': "圣墟新章节", 'desp': chapter}
     params = urllib.parse.urlencode(params)
     urllib.request.urlopen(sendurl + params)
 
