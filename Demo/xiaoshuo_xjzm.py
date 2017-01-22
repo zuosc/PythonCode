@@ -17,7 +17,7 @@ def getLatChapter():
 def sengMsg(chapter):
     mAddr = 'http://m.09xs.com/'+chapter
     sendurl = 'http://sc.ftqq.com/SCU5209T50ff781c69372d9b370387f5c079be01587ae52428055.send?'
-    params = {'text': "玄机之门", 'desp': mAddr}
+    params = {'text': "玄界之门", 'desp': mAddr}
     params = urllib.parse.urlencode(params)
     urllib.request.urlopen(sendurl + params)
 
