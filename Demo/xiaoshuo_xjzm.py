@@ -23,7 +23,7 @@ def sengMsg(chapter):
 
 try:
     lastChapter = getLatChapter()
-    f = open('xuanjiezhimen.txt','r')
+    f = open('xuanjiezhimen.txt', 'r')
     content = f.read()
 
     if content == lastChapter:
