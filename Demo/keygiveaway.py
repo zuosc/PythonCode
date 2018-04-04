@@ -16,9 +16,9 @@ def updateName(name):
     f.write(name)
 
 
-def sengMsg():
+def sengMsg(desp):
     sendurl = 'http://sc.ftqq.com/SCU5209T50ff781c69372d9b370387f5c079be01587ae52428055.send?'
-    params = {'text': "keygiveaway", 'desp': "有新的key了"}
+    params = {'text': "keygiveaway", 'desp': "游戏名称："+desp}
     params = urllib.parse.urlencode(params)
     urllib.request.urlopen(sendurl + params)
 
@@ -30,16 +30,21 @@ html = response.read().decode('utf-8')
 soup = BeautifulSoup(html,"html.parser")
 trs = soup.findAll('table')[0].findAll("tbody")[0].findAll("tr")
 tds = trs[0].findAll("td")
+printDes = ""
 
 gameType = tds[3].find("img").attrs["alt"]
 name = tds[5].find("h4").text.strip()
 lastName = getLastName()
+
+printDes = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+printDes += "\r\n新获得的游戏类型是:" + gameType
+printDes += "\r\n游戏名称：" + name
+printDes += "\r\n上次记录的游戏名称为：" + lastName
+printDes += "\r\n------------------------------------------------\r\n"
+
 if (((gameType == "Steam") | (gameType == "Othrer")) & (lastName != name)):
-    sengMsg()
+    sengMsg(name)
     updateName(name)
 
-print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-print("新获得的游戏类型是:" + gameType)
-print("游戏名称：" + name)
-print("上次记录的游戏名称为：" + lastName)
-print("------------------------------------------------")
+print(printDes)
+
