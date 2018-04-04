@@ -22,7 +22,7 @@ def sengMsg():
     params = urllib.parse.urlencode(params)
     urllib.request.urlopen(sendurl + params)
 
-url = 'http://keygiveaway.com/archived'
+url = 'http://keygiveaway.com'
 user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
 req = urllib.request.Request(url, headers={'User-Agent':user_agent})
 response = urllib.request.urlopen(req)
@@ -34,7 +34,7 @@ tds = trs[0].findAll("td")
 gameType = tds[3].find("img").attrs["alt"]
 name = tds[5].find("h4").text.strip()
 lastName = getLastName()
-if ((gameType == "Steam") & (lastName != name)):
+if (((gameType == "Steam") | (gameType == "Othrer")) & (lastName != name)):
     sengMsg()
     updateName(name)
 
